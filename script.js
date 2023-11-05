@@ -113,3 +113,21 @@ console.log([...arr, ...arr2]);
 
 //JOIN
 console.log(letters.join(" - "));
+
+// AT METHOD
+
+const arr3 = [23, 11, 64];
+console.log(arr3.at(0));
+
+// getting the last element on an array.
+
+console.log(arr3[arr3.length - 1]);
+// console.log(arr3.slice(-1)[0]);
+// console.log(arr3.at(-1));
+console.log(arr3.at(-2));
+
+console.log("Jonas".at(-1));
+
+//LOOPING ARRAYS FOREACH.
+
+movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
