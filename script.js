@@ -242,3 +242,28 @@ const bu = li.filter(function (curr) {
 });
 
 console.log(bu);
+
+const euroToUsd = 1.1;
+
+console.log(movements.map((curr) => curr * euroToUsd));
+
+console.log("-----SAME THING WITH FOR OF-----");
+
+const newArr = [];
+
+for (const mov of movements) {
+  console.log(mov * euroToUsd);
+  newArr.push(mov * euroToUsd);
+}
+
+console.log(newArr);
+
+const movementsDescriptions = movements.map((mov, i, arr) => {
+  if (mov > 0) {
+    return `Movement ${i + 1}: You deposited ${mov}`;
+  } else {
+    return `Movement ${i + 1}: You withdrew ${Math.abs(mov)}`;
+  }
+});
+
+console.log(movementsDescriptions.join("\n"));
