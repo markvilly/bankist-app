@@ -232,3 +232,13 @@ const testData1 = [
 ];
 
 checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
+
+//DATA TRANSFORMATIONS MAPS, FILTER, REDUCE
+
+const li = [3, 1, 4, 3, 2];
+
+const bu = li.filter(function (curr) {
+  return curr > 2;
+});
+
+console.log(bu);
