@@ -265,3 +265,55 @@ const movementsDescriptions = movements.map((mov, i, arr) => {
 });
 
 console.log(movementsDescriptions.join("\n"));
+
+//COMPUTE USERNAMES.
+
+const createUsernames = function (accs) {
+  accs.forEach((acc) => {
+    //creating a new property for usernames on the account object.
+    acc.username = acc.owner
+      .toLowerCase()
+      .split(" ")
+      .map((word) => word[0])
+      .join("");
+  });
+
+  //   console.log(username.join(""));
+  //   return username;
+};
+
+const user = "Steven Thomas William";
+createUsernames(accounts);
+console.log(accounts);
+
+const obj1 = {
+  name: "cow",
+  plr: "sWew",
+};
+
+// obj1.cow = obj1.name[0];
+
+obj1.cow = obj1?.cow ?? "Moo";
+
+console.log(obj1);
+
+// FILTER METHOD
+
+const deposits = movements.filter(function (mov) {
+  return mov > 0;
+});
+console.log(movements);
+console.log(deposits);
+
+const depositFor = [];
+for (const mov of movements) {
+  if (mov > 0) {
+    depositFor.push(mov);
+  }
+}
+
+console.log(depositFor);
+
+const withdrawals = movements.filter((mov) => mov < 0);
+
+console.log(withdrawals);
