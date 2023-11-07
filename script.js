@@ -84,6 +84,12 @@ const displayMovements = function (movements) {
 
 displayMovements(account1.movements);
 
+const calcDisplayBalance = function (movements) {
+  const balance = movements.reduce((acc, curr) => acc + curr, 0);
+  labelBalance.textContent = `${balance}€`;
+};
+calcDisplayBalance(account1.movements);
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -317,3 +323,30 @@ console.log(depositFor);
 const withdrawals = movements.filter((mov) => mov < 0);
 
 console.log(withdrawals);
+
+//REDUCE FUNCTION
+
+// accumulator is like a snowball.
+const balance = movements.reduce((acc, curr) => acc + curr, 0);
+
+console.log(balance);
+
+let balance2 = 100;
+
+for (const mov of movements) {
+  balance2 += mov;
+}
+
+console.log(balance2);
+
+// Maximum value.
+
+const max = movements.reduce((acc, mov) => {
+  if (acc > mov) {
+    return acc;
+  } else {
+    return mov;
+  }
+}, movements[0]);
+
+console.log(max);
