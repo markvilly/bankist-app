@@ -100,6 +100,17 @@ const calcDisplaySummary = function (movements) {
     .filter((mov) => mov < 0)
     .reduce((acc, mov) => acc + mov, 0);
   labelSumOut.textContent = `${Math.abs(outcomes)}€`;
+
+  const interest = movements
+    .filter((mov) => mov > 0)
+    .map((deposit) => (deposit * 1.2) / 100)
+    .filter((int, i, arr) => {
+      console.log(arr);
+      return int >= 1;
+    })
+    .reduce((acc, int) => acc + int, 0);
+
+  labelSumInterest.textContent = `${interest}€`;
 };
 
 calcDisplaySummary(account1.movements);
@@ -393,3 +404,43 @@ console.log(calcAverageHumanAge(data2));
 //   .filter((mov) => mov > 0)
 //   .map((mov) => mov * euroToUsd)
 //   .reduce((acc, mov) => acc + mov, 0);
+
+/*
+    Rewrite the 'calcAverageHumanAge' function from the previous challenge, but this time as an arrow function and using chaining!
+
+    testdata1 = [5,2,4,1,15,8,3]
+    testdata2 = [16,6,10,5,6,1,4]
+
+    const calcAverageHumanAge = function (arr) {
+  //calc the dog age in human years
+  const humYear = arr.map((age) => (age <= 2 ? 2 * age : 16 + age * 4));
+  const humanage = humYear.filter((age) => age > 18);
+  const totaAge = humanage.reduce((acc, ages) => acc + ages, 0);
+  console.log(
+    `average human age of all the adult dogs is ${Math.trunc(
+      totaAge / humanage.length
+    )} `
+  );
+
+*/
+
+const testdata1 = [5, 2, 4, 1, 15, 8, 3];
+const testdata2 = [16, 6, 10, 5, 6, 1, 4];
+
+const calcAverage2 = function (ageArr) {
+  //dog to human age conversion
+  const averageAge = ageArr
+    .map((age) => (age <= 2 ? 2 * age : 16 + age * 4))
+    .filter((age) => {
+      console.log(age);
+      return age > 18;
+    })
+    .reduce((acc, age, i, arr) => {
+      return acc + age / arr.length;
+    });
+
+  return Math.trunc(averageAge);
+};
+
+console.log(calcAverage2(testdata1));
+console.log(calcAverage2(testdata2));
