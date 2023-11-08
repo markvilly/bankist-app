@@ -7,7 +7,7 @@
 // Data
 const account1 = {
   owner: "Jonas Schmedtmann",
-  movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
+  movements: [200, 450, -400, 3000, -650, -130, 70, 1300, 100000],
   interestRate: 1.2, // %
   pin: 1111,
 };
@@ -89,6 +89,20 @@ const calcDisplayBalance = function (movements) {
   labelBalance.textContent = `${balance}€`;
 };
 calcDisplayBalance(account1.movements);
+
+const calcDisplaySummary = function (movements) {
+  const incomes = movements
+    .filter((e) => e > 0)
+    .reduce((acc, mov) => acc + mov, 0);
+  labelSumIn.textContent = `${incomes}€`;
+
+  const outcomes = movements
+    .filter((mov) => mov < 0)
+    .reduce((acc, mov) => acc + mov, 0);
+  labelSumOut.textContent = `${Math.abs(outcomes)}€`;
+};
+
+calcDisplaySummary(account1.movements);
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
@@ -371,3 +385,11 @@ const calcAverageHumanAge = function (arr) {
 
 console.log(calcAverageHumanAge(data1));
 console.log(calcAverageHumanAge(data2));
+
+//CHAINING METHODS.
+
+// PIPELINE.
+// const totalDeposits = movements
+//   .filter((mov) => mov > 0)
+//   .map((mov) => mov * euroToUsd)
+//   .reduce((acc, mov) => acc + mov, 0);
