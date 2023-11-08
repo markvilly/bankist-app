@@ -83,8 +83,8 @@ const displayMovements = function (movements) {
 };
 
 const calcDisplayBalance = function (acc) {
-  account1.balance = acc.movements.reduce((acc, curr) => acc + curr, 0);
-  labelBalance.textContent = `${account.balance}€`;
+  acc.balance = acc.movements.reduce((acc, curr) => acc + curr, 0);
+  labelBalance.textContent = `${acc.balance}€`;
 };
 
 const calcDisplaySummary = function (acc) {
@@ -182,11 +182,11 @@ console.log([...arr]);
 
 //SPLICE METHOD - mutates the array.
 
-console.log(arr.splice(2));
-console.log(arr);
+// console.log(arr.splice(2));
+// console.log(arr);
 
-console.log(arr.splice(1, 2));
-console.log(arr);
+// console.log(arr.splice(1, 2));
+// console.log(arr);
 
 // REVERSE
 
@@ -194,30 +194,30 @@ arr = ["a", "b", "c", "d", "e"];
 
 const arr2 = ["j", "i", "h", "g", "f"];
 
-console.log(arr2.reverse());
-console.log(arr2);
+// console.log(arr2.reverse());
+// console.log(arr2);
 
 //Concat methods
 
 const letters = arr.concat(arr2);
 
-console.log(letters);
-console.log([...arr, ...arr2]);
+// console.log(letters);
+// console.log([...arr, ...arr2]);
 
 //JOIN
 console.log(letters.join(" - "));
 
 // AT METHOD
 
-const arr3 = [23, 11, 64];
-console.log(arr3.at(0));
+// const arr3 = [23, 11, 64];
+// console.log(arr3.at(0));
 
 // getting the last element on an array.
 
-console.log(arr3[arr3.length - 1]);
-// console.log(arr3.slice(-1)[0]);
-// console.log(arr3.at(-1));
-console.log(arr3.at(-2));
+// console.log(arr3[arr3.length - 1]);
+// // console.log(arr3.slice(-1)[0]);
+// // console.log(arr3.at(-1));
+// console.log(arr3.at(-2));
 
 console.log("Jonas".at(-1));
 
@@ -528,3 +528,5 @@ console.log(movements.find((mov) => mov < 0));
 
 console.log(accounts);
 console.log(accounts.find((acc) => acc.owner === "Jessica Davis"));
+
+console.log(accounts);
