@@ -432,15 +432,47 @@ const calcAverage2 = function (ageArr) {
   const averageAge = ageArr
     .map((age) => (age <= 2 ? 2 * age : 16 + age * 4))
     .filter((age) => {
-      console.log(age);
+      //   console.log(age);
       return age > 18;
     })
     .reduce((acc, age, i, arr) => {
       return acc + age / arr.length;
-    });
+    }, 0);
 
   return Math.trunc(averageAge);
 };
 
 console.log(calcAverage2(testdata1));
 console.log(calcAverage2(testdata2));
+
+function SeriesSum(n) {
+  // Happy Coding ^_^
+  const numb = n;
+  const series = `1 + 1/4 + 1/7 + 1/10 + 1/13 + 1/16 +...`;
+
+  const seriesArr = [series.split("+")];
+  const seriesNum = seriesArr.map((arr) => Number(arr));
+  console.log(seriesNum);
+  if (numb > 0) {
+    const sum = seriesNum.splice(0, n).reduce((acc, curr, i) => {
+      return acc + curr;
+    }, 0);
+    return sum;
+  } else {
+    return `0.00`;
+  }
+}
+
+// console.log(SeriesSum(4));
+
+const series = `1 + 1/4 + 1/7 + 1/10 + 1/13 + 1/16`;
+
+const stattte = series.split("+").map((e) => eval(e));
+
+console.log(
+  stattte
+    .reduce((acc, curr) => {
+      return acc + curr;
+    })
+    .toString()
+);
