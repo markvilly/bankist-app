@@ -350,3 +350,24 @@ const max = movements.reduce((acc, mov) => {
 }, movements[0]);
 
 console.log(max);
+
+// CODING CHALLENGE.
+const data1 = [5, 2, 4, 1, 15, 8, 3];
+const data2 = [16, 6, 10, 5, 6, 1, 4];
+
+const calcAverageHumanAge = function (arr) {
+  //calc the dog age in human years
+  const humYear = arr.map((age) => (age <= 2 ? 2 * age : 16 + age * 4));
+  const humanage = humYear.filter((age) => age > 18);
+  const totaAge = humanage.reduce((acc, ages) => acc + ages, 0);
+  console.log(
+    `average human age of all the adult dogs is ${Math.trunc(
+      totaAge / humanage.length
+    )} `
+  );
+
+  return humanage;
+};
+
+console.log(calcAverageHumanAge(data1));
+console.log(calcAverageHumanAge(data2));
