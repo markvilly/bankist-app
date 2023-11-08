@@ -82,9 +82,9 @@ const displayMovements = function (movements) {
   });
 };
 
-const calcDisplayBalance = function (movements) {
-  const balance = movements.reduce((acc, curr) => acc + curr, 0);
-  labelBalance.textContent = `${balance}€`;
+const calcDisplayBalance = function (acc) {
+  account1.balance = acc.movements.reduce((acc, curr) => acc + curr, 0);
+  labelBalance.textContent = `${account.balance}€`;
 };
 
 const calcDisplaySummary = function (acc) {
@@ -116,6 +116,8 @@ let currentAccount;
 btnLogin.addEventListener("click", function (e) {
   e.preventDefault(); // prevents form submission.
 
+  //use find to allocate current user acc to the current account variable
+
   currentAccount = accounts.find(
     (acc) => acc.username === inputLoginUsername.value
   );
@@ -135,12 +137,27 @@ btnLogin.addEventListener("click", function (e) {
     displayMovements(currentAccount.movements);
 
     //display balance
-    calcDisplayBalance(currentAccount.movements);
+    calcDisplayBalance(currentAccount);
 
     //display summary
     calcDisplaySummary(currentAccount);
     console.log("LOGIN");
   }
+});
+
+//IMPLEMENTING MONEY TRANSFER
+
+btnTransfer.addEventListener("click", function (e) {
+  e.preventDefault; // working with forms this stop the page from reloading when clicked.
+
+  const amount = Number(inputTransferAmount.value);
+
+  const recieverAccount = accounts.find(
+    (acc) => acc.username === inputTransferTo.value
+  );
+  console.log(amount, recieverAccount);
+
+  // if(amount>0 &&  )
 });
 
 /////////////////////////////////////////////////
