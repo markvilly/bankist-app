@@ -476,3 +476,12 @@ console.log(
     })
     .toString()
 );
+
+// FIND METHOD. returns one value.
+console.log(movements);
+console.log(movements.find((mov) => mov < 0));
+
+console.log(accounts);
+console.log(accounts.find((acc) => acc.owner === "Jessica Davis"));
+
+//IMPLEMENTING THE LOGIN FEATURE
