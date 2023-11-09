@@ -109,6 +109,19 @@ const calcDisplaySummary = function (acc) {
   labelSumInterest.textContent = `${interest}€`;
 };
 
+//Update function
+const updateUI = function (acc) {
+  //display movements
+  displayMovements(acc.movements);
+
+  //display balance
+  calcDisplayBalance(acc);
+
+  //display summary
+  calcDisplaySummary(acc);
+  console.log("LOGIN");
+};
+
 //IMPLEMENTING THE LOGIN FEATURE
 
 let currentAccount;
@@ -132,23 +145,17 @@ btnLogin.addEventListener("click", function (e) {
     containerApp.style.opacity = 100;
 
     inputLoginUsername.value = inputLoginPin.value = "";
-
-    //display movements
-    displayMovements(currentAccount.movements);
-
-    //display balance
-    calcDisplayBalance(currentAccount);
-
-    //display summary
-    calcDisplaySummary(currentAccount);
-    console.log("LOGIN");
+    updateUI(currentAccount);
   }
 });
 
+//CLOSE ACCOUNT FEATURE.
+
+account1.movements.push(150000);
 //IMPLEMENTING MONEY TRANSFER
 
 btnTransfer.addEventListener("click", function (e) {
-  e.preventDefault; // working with forms this stop the page from reloading when clicked.
+  e.preventDefault(); // working with forms this stop the page from reloading when clicked.
 
   const amount = Number(inputTransferAmount.value);
 
@@ -157,7 +164,21 @@ btnTransfer.addEventListener("click", function (e) {
   );
   console.log(amount, recieverAccount);
 
-  // if(amount>0 &&  )
+  inputTransferAmount.value = inputTransferTo.value = "";
+
+  if (
+    amount > 0 &&
+    recieverAccount &&
+    currentAccount.balance >= amount &&
+    recieverAccount?.username !== currentAccount.username
+  ) {
+    currentAccount.movements.push(-amount); // removes the amount to be transfered
+
+    recieverAccount.movements.push(amount);
+    console.log("Transfer valid!"); // adds amount to recipient's account.
+
+    updateUI(currentAccount);
+  }
 });
 
 /////////////////////////////////////////////////
