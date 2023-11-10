@@ -612,6 +612,8 @@ const anyDeposits = movements.some((mov) => mov > 5000);
 
 console.log(anyDeposits);
 
-// EVERY
-
-console.log(account4.movements.every((mov) => mov > 0));
+// SEPERATE CALL BACK.
+const deposit = (mov) => mov > 0;
+console.log(account4.movements.every(deposit));
+console.log(movements.filter(deposit));
+console.log(movements.some(deposit));
