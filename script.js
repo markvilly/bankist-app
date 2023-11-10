@@ -53,8 +53,9 @@ const btnLoan = document.querySelector(".form__btn--loan");
 const btnClose = document.querySelector(".form__btn--close");
 const btnSort = document.querySelector(".btn--sort");
 
-const inputLoginUsername = document.querySelector(".login__input--user");
-const inputLoginPin = document.querySelector(".login__input--pin");
+let inputLoginUsername = document.querySelector(".login__input--user");
+let inputLoginPin = document.querySelector(".login__input--pin");
+
 const inputTransferTo = document.querySelector(".form__input--to");
 const inputTransferAmount = document.querySelector(".form__input--amount");
 const inputLoanAmount = document.querySelector(".form__input--loan-amount");
@@ -150,6 +151,27 @@ btnLogin.addEventListener("click", function (e) {
 });
 
 //CLOSE ACCOUNT FEATURE.
+btnClose.addEventListener("click", function (e) {
+  e.preventDefault();
+
+  //   console.log(currentAccount.username);
+  if (
+    inputCloseUsername.value === currentAccount?.username &&
+    Number(inputClosePin.value) === currentAccount.pin
+  ) {
+    const index = accounts.findIndex(
+      (acc) => acc.username === currentAccount.username
+    );
+    console.log(index);
+    //delete account
+    accounts.splice(index, 1);
+
+    //hide UI
+    containerApp.style.opacity = 0;
+  } else {
+    console.log("not on the money");
+  }
+});
 
 account1.movements.push(150000);
 //IMPLEMENTING MONEY TRANSFER
