@@ -44,6 +44,8 @@ const labelSumOut = document.querySelector(".summary__value--out");
 const labelSumInterest = document.querySelector(".summary__value--interest");
 const labelTimer = document.querySelector(".timer");
 
+//BUTTONS
+
 const containerApp = document.querySelector(".app");
 const containerMovements = document.querySelector(".movements");
 
@@ -171,9 +173,33 @@ btnClose.addEventListener("click", function (e) {
   } else {
     console.log("not on the money");
   }
+  inputCloseUsername.value = inputClosePin.value = "";
 });
 
 account1.movements.push(150000);
+
+//////////////////////////////////////
+
+//LOAN FEATURE
+//////////////////////////////
+
+btnLoan.addEventListener("click", (e) => {
+  e.preventDefault();
+  const amount = Number(inputLoanAmount.value);
+
+  if (
+    amount > 0 &&
+    currentAccount.movements.some((mov) => mov >= amount * 0.1)
+  ) {
+    //doing the transfer
+    currentAccount.movements.push(amount);
+
+    //update UI
+    updateUI(currentAccount);
+    inputLoanAmount.value = "";
+  }
+});
+
 //IMPLEMENTING MONEY TRANSFER
 
 btnTransfer.addEventListener("click", function (e) {
@@ -573,3 +599,17 @@ console.log(accounts);
 console.log(accounts.find((acc) => acc.owner === "Jessica Davis"));
 
 console.log(accounts);
+
+//SOME AND EVERY METHOD.
+console.log(movements);
+
+// checks EQUALITY
+console.log(movements.includes(-130));
+
+//to out if there are positive movements.
+// CHECKS CONDITION.
+const anyDeposits = movements.some((mov) => mov > 5000);
+
+console.log(anyDeposits);
+
+//
