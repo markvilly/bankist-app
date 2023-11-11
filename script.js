@@ -620,9 +620,10 @@ console.log(squareDigits(9119));
 const accountMovements = accounts.map((acc) => acc.movements);
 
 console.log(accountMovements);
-console.log(accountMovements.flat());
-const allmovement = accountMovements.flat();
+//
 
-const overallBalance = allmovement.reduce((acc, mov) => acc + mov, 0);
+const overallBal = accounts
+  .flatMap((acc) => acc.movements)
+  .reduce((acc, mov) => acc + mov, 0);
 
-console.log(overallBalance);
+console.log(overallBal);
