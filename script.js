@@ -559,24 +559,6 @@ const calcAverage2 = function (ageArr) {
 console.log(calcAverage2(testdata1));
 console.log(calcAverage2(testdata2));
 
-function SeriesSum(n) {
-  // Happy Coding ^_^
-  const numb = n;
-  const series = `1 + 1/4 + 1/7 + 1/10 + 1/13 + 1/16 +...`;
-
-  const seriesArr = [series.split("+")];
-  const seriesNum = seriesArr.map((arr) => Number(arr));
-  console.log(seriesNum);
-  if (numb > 0) {
-    const sum = seriesNum.splice(0, n).reduce((acc, curr, i) => {
-      return acc + curr;
-    }, 0);
-    return sum;
-  } else {
-    return `0.00`;
-  }
-}
-
 // console.log(SeriesSum(4));
 
 const series = `1 + 1/4 + 1/7 + 1/10 + 1/13 + 1/16`;
@@ -617,3 +599,30 @@ const deposit = (mov) => mov > 0;
 console.log(account4.movements.every(deposit));
 console.log(movements.filter(deposit));
 console.log(movements.some(deposit));
+
+const array1 = [[1, 2, 3], [4, 5, 6], 7, 8];
+console.log(array1.flat());
+
+const arrDeep = [[[1, 2], 3], [4, [5, 6]], 7, 8];
+console.log(arrDeep.flat(2));
+
+function squareDigits(num) {
+  const numBe = num
+    .toString()
+    .split("")
+    .map((number) => Number(number) * Number(number))
+    .join("");
+  return numBe;
+}
+
+console.log(squareDigits(9119));
+
+const accountMovements = accounts.map((acc) => acc.movements);
+
+console.log(accountMovements);
+console.log(accountMovements.flat());
+const allmovement = accountMovements.flat();
+
+const overallBalance = allmovement.reduce((acc, mov) => acc + mov, 0);
+
+console.log(overallBalance);
