@@ -627,3 +627,31 @@ const overallBal = accounts
   .reduce((acc, mov) => acc + mov, 0);
 
 console.log(overallBal);
+
+// SORTING MOVEMENTS/ ARRAYS.
+
+const owners = ["Jonas", "Zach", "Adam", "Martha"];
+
+console.log(owners.sort());
+console.log(owners);
+
+// return < 0, A, B.
+// return > 0, B, A.
+
+// ASCENDING
+movements.sort((a, b) => {
+  //sorting in ascending order
+  if (a > b) return 1;
+  if (a < b) return -1;
+});
+
+console.log(movements);
+
+// DESCENDING
+movements.sort((a, b) => {
+  //sorting in ascending order
+  if (a > b) return -1;
+  if (a < b) return 1;
+});
+
+console.log(movements);
