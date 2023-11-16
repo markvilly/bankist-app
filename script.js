@@ -697,3 +697,18 @@ console.log(
     return curr;
   })
 );
+
+// Array.from() real usecase.
+
+labelBalance.addEventListener("click", (e) => {
+  e.preventDefault();
+  const movementsUI = Array.from(
+    document.querySelectorAll(".movements__value")
+  );
+
+  console.log(
+    movementsUI.map((curr) => {
+      curr.textContent;
+    })
+  );
+});
