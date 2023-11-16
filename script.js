@@ -667,3 +667,5 @@ movements.sort((a, b) => {
 });
 
 console.log(movements);
+
+//CREATING ARRAYS PROGRAMMATICALLY
