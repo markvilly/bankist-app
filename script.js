@@ -669,3 +669,31 @@ movements.sort((a, b) => {
 console.log(movements);
 
 //CREATING ARRAYS PROGRAMMATICALLY
+const narr = [1, 2, 3, 4, 5, 6, 7, 8];
+const x = new Array(7);
+
+console.log(x);
+x.fill(1, 3, 5);
+
+console.log(x);
+console.log(narr.fill(23, 2, 5));
+
+const y = Array.from({ length: 7 }, () => 1);
+
+console.log(y);
+
+const z = Array.from({ length: 7 }, (_, index) => index + 1);
+
+console.log(z);
+
+//GENERATE AN ARRAY WITH 100 random dice rolls.
+
+// const diceRolls = Math.trunc(Math.random() * 6) + 1;
+// console.log(diceRolls);
+
+console.log(
+  Array.from({ length: 100 }, (curr, i) => {
+    curr = Math.trunc(Math.random() * 6) + 1;
+    return curr;
+  })
+);
