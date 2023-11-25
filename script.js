@@ -698,8 +698,6 @@ console.log(
   })
 );
 
-// Array.from() real usecase.
-
 labelBalance.addEventListener("click", (e) => {
   e.preventDefault();
   const movementsUI = Array.from(
