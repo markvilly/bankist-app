@@ -739,3 +739,19 @@ console.log(Number.isFinite(20));
 console.log(Number.isFinite("20"));
 console.log(Number.isFinite(+"20X"));
 console.log(Number.isFinite(23 / 0));
+
+//checking teh maximum value
+console.log("Checking for maximum value");
+console.log(Math.max(5, 18, 23, 11, 2));
+console.log(Math.max(5, 18, "23", 11, 2));
+console.log(Math.max(5, 18, "23px", 11, 2));
+
+console.log(Math.min(5, 18, 23, 11, 2));
+
+console.log("Calculating the area of a circle. ");
+
+console.log(Math.PI * Number.parseFloat("10px") ** 2);
+
+const randomInt = (min, max) => Math.trunc(Math.random() * (max - min) + min);
+
+console.log(randomInt(10, 20));
