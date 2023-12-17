@@ -143,7 +143,7 @@ btnLogin.addEventListener("click", function (e) {
 
   console.log(currentAccount);
 
-  if (currentAccount?.pin === Number(inputLoginPin.value)) {
+  if (currentAccount?.pin === +inputLoginPin.value) {
     //display ui and welcome message
     labelWelcome.textContent = `Welcome back, ${
       currentAccount.owner.split(" ")[0]
@@ -162,7 +162,7 @@ btnClose.addEventListener("click", function (e) {
   //   console.log(currentAccount.username);
   if (
     inputCloseUsername.value === currentAccount?.username &&
-    Number(inputClosePin.value) === currentAccount.pin
+    +inputClosePin.value === currentAccount.pin
   ) {
     const index = accounts.findIndex(
       (acc) => acc.username === currentAccount.username
@@ -188,7 +188,7 @@ account1.movements.push(150000);
 
 btnLoan.addEventListener("click", (e) => {
   e.preventDefault();
-  const amount = Number(inputLoanAmount.value);
+  const amount = +inputLoanAmount.value;
 
   if (
     amount > 0 &&
@@ -208,7 +208,7 @@ btnLoan.addEventListener("click", (e) => {
 btnTransfer.addEventListener("click", function (e) {
   e.preventDefault(); // working with forms this stop the page from reloading when clicked.
 
-  const amount = Number(inputTransferAmount.value);
+  const amount = +inputTransferAmount.value;
 
   const recieverAccount = accounts.find(
     (acc) => acc.username === inputTransferTo.value
@@ -622,7 +622,7 @@ function squareDigits(num) {
   const numBe = num
     .toString()
     .split("")
-    .map((number) => Number(number) * Number(number))
+    .map((number) => +number * +number)
     .join("");
   return numBe;
 }
