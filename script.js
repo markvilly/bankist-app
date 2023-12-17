@@ -710,3 +710,32 @@ labelBalance.addEventListener("click", (e) => {
     })
   );
 });
+
+// Lecture: Numbers.
+
+//converting strings to numbers
+
+//Conversion.
+
+console.log(Number("23"));
+console.log(+"23");
+
+//Parsing
+console.log(Number.parseInt("30px", 10));
+console.log(Number.parseFloat("25.55", 10));
+
+console.log(Number.parseFloat("23.5rem"));
+
+//Check if value is an Integer.
+console.log("Checking for integers");
+console.log(Number.isInteger(23));
+console.log(Number.isInteger(23.5));
+console.log(Number.isInteger(23 / 0));
+console.log(Number.isInteger(+"24"));
+
+//Checking if value is a number.
+console.log("Checking for Numbers");
+console.log(Number.isFinite(20));
+console.log(Number.isFinite("20"));
+console.log(Number.isFinite(+"20X"));
+console.log(Number.isFinite(23 / 0));
