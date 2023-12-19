@@ -188,7 +188,7 @@ account1.movements.push(150000);
 
 btnLoan.addEventListener("click", (e) => {
   e.preventDefault();
-  const amount = +inputLoanAmount.value;
+  const amount = Math.floor(inputLoanAmount.value);
 
   if (
     amount > 0 &&
@@ -752,6 +752,18 @@ console.log("Calculating the area of a circle. ");
 
 console.log(Math.PI * Number.parseFloat("10px") ** 2);
 
-const randomInt = (min, max) => Math.trunc(Math.random() * (max - min) + min);
+const randomInt = (min, max) => Math.floor(Math.random() * (max - min) + min);
 
 console.log(randomInt(10, 20));
+
+// Rounding intergers
+
+console.log(Math.round(23.3));
+console.log(Math.ceil(23.3));
+console.log(Math.floor(23.3));
+
+// rounding decimals/ floating points
+
+console.log((2.7).toFixed(0));
+console.log((2.7).toFixed(3));
+console.log((2.345).toFixed(2));
